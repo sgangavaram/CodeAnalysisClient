@@ -14,7 +14,7 @@ function Home() {
   const onSubmit = (e)=>{
     console.log(e)
     const user_id = localStorage.getItem('user_id')
-    const repo_name = e.target.value
+    const repo_name = e.target.value;
     const url = `https://localhost:7079/api/Dashboard/getAllReports?user_id=${user_id}&repo_name=${repo_name}`
     console.log(url)
     axios.get(url)

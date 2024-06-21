@@ -1,0 +1,54 @@
+.report-list {
+    margin: 20px 0;
+     padding-left: 10px;
+  }
+  
+  .report-item {
+    /* /border: 1px solid #ccc; */
+    margin: 2px 0;
+    padding: 5px;
+    border-radius: 2px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:rgb(226, 222, 191);
+    /* text-decoration:underline */
+    border-bottom: 1px solid rgb(233, 229, 200);
+    font-weight: bold;
+  }
+  
+  .report-header {
+    cursor: pointer;
+    
+  }
+  
+  .report-header h3 {
+    margin: 0;
+  }
+  
+  .report-details {
+    margin-top: 5px;
+    padding-left: 5px;
+  }
+  .report-details .g1
+  {
+      color: rgb(165, 255, 165);
+      font-weight: bold;
+      font-size: 15px;
+  }
+  .report-details p
+  {
+    color:aliceblue
+  }
+  .report-details .g2
+  {
+      /* color: rgb(252, 217, 121); */
+      color:rgb(248, 183, 63);
+      font-weight: bold;
+      font-size: 15px;
+  }
+  .report-details .g3
+  {
+      /* color: rgb(252, 217, 121); */
+      color:rgb(255, 64, 64);
+      font-weight: bold;
+      font-size: 15px;
+  }
