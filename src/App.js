@@ -4,6 +4,7 @@ import RootLayout from './components/rootLayout/RootLayout';
 import Home from './components/home/Home'
 import Login from './components/login/Login'
 import Signup from './components/signup/Signup'
+import Filereport from './components/FileReports/Filereport';
 
 function App() {
 
@@ -23,6 +24,10 @@ function App() {
           path:'/signup',
           element:<Signup/>
         },
+        {
+          path:'/filereports',
+          element:<Filereport/>
+        }
       ]
     }
   ])

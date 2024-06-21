@@ -13,7 +13,6 @@ function NavigationBar() {
       if(window.location.pathname != '/signup')
        navigate('/login')
     }
-    else navigate('/')
   },[localStorage.getItem('user_id')])  
 
   return (
