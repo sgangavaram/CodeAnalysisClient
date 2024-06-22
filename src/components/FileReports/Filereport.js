@@ -29,6 +29,10 @@
 // export default Filereport
 
 import axios from 'axios';
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+import { IoWarning } from "react-icons/io5";
+import { TbBellRingingFilled } from "react-icons/tb";
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Filereport.css'
@@ -69,31 +73,67 @@ const Filereport = () => {
   console.log(reportLists)
 
   return (
-    <div className='overflow-y-auto h-100'>
+    <div className='overflow-y-auto h-100 px-5'>
       <h2 className='text-center pt-3'>File wise Reports</h2>
       {(reportLists.length > 0) ? (
         <div className='report-list'>
           {reportLists.map((report, index) => (
             <div key={index} className='report-item'>
               <div className='report-header' onClick={() => toggleReport(report.name)}>
-                <p>{report.name}</p>
+                <p>
+                  <sapn className='me-3'>{report.name}</sapn>    
+                  {expandedReports[report.name] ? <IoIosArrowUp/> : <IoIosArrowDown/>}
+                  {report.hasPrivateKeys && <span className='text-danger mx-3'><TbBellRingingFilled/></span>}
+                  {report.score < 60 && <span className='text-warning mx-3'><IoWarning /></span>}
+                </p>
               </div>
               {expandedReports[report.name] && (
                 <div className='report-details'>
                   <p><strong>"path": </strong> <span className='g1'>{ report.path}</span>,</p>
                   <p><strong>"message":</strong> <span className='g1'>{report.message}</span>,</p>
-                  <p><strong>"length":</strong> <span className='g3'>{report.length}</span>,</p>
-                  <p><strong>"number of Methods":</strong> <span className='g3'>{report.numberOfMethods}</span>,</p>
-                  <p><strong>"number of Comments":</strong><span className='g3'> {report.numberOfComments}</span>,</p>
-                  <p><strong>"complexity":</strong> <span className='g3'>{report.complexity}</span>,</p>
-                  <p><strong>"follows Naming Conventions":</strong> <span className='g2'>{report.followsNamingConventions ? 'Yes' : 'No'}</span>,</p>
-                  <p><strong>"has Error Handling":</strong> <span className='g2'>{report.hasErrorHandling ? 'Yes' : 'No'}</span>,</p>
-                  <p><strong>"has Code Duplication":</strong><span className='g2'> {report.hasCodeDuplication ? 'Yes' : 'No'}</span>,</p>
-                  <p><strong>"has Good Comments":</strong> <span className='g2'>{report.hasGoodComments ? 'Yes' : 'No'}</span>,</p>
-                  <p><strong>"has Consistent Formatting":</strong> <span className='g2'>{report.hasConsistentFormatting ? 'Yes' : 'No'}</span>,</p>
-                  <p><strong>"has Private Keys":</strong> <span className='g2'>{report.hasPrivateKeys ? 'Yes' : 'No'}</span>,</p>
-                  <p><strong>"follows File Name Conventions":</strong> <span className='g2'>{report.followsFileNameConventions ? 'Yes' : 'No'}</span>,</p>
-                  <p><strong>"score":</strong><span className='g3'>{report.score}</span></p>
+                  <p><strong>"length":</strong> <span className='g2'>{report.length}</span>,</p>
+                  <p><strong>"number of Methods":</strong> <span className='g2'>{report.numberOfMethods}</span>,</p>
+                  <p><strong>"number of Comments":</strong><span className='g2'> {report.numberOfComments}</span>,</p>
+                  <p><strong>"complexity":</strong> <span className='g2'>{report.complexity}</span>,</p>
+                  <p><strong>"follows Naming Conventions":</strong>{
+                        report.followsNamingConventions ?
+                         <span className='g1'>Yes</span> : 
+                         <span className='g3'>No</span>
+                      },
+                  </p>
+                  <p><strong>"has Error Handling":</strong> {
+                        report.hasErrorHandling ?
+                          <span className='g1'>Yes</span> : 
+                          <span className='g3'>No</span>
+                      },
+                  </p>
+                  <p><strong>"has Code Duplication":</strong> {
+                        report.hasCodeDuplication ? 
+                          <span className='g3'>Yes</span> : 
+                          <span className='g1'>No</span>
+                      },
+                  </p>
+                  <p><strong>"has Good Comments":</strong> {
+                        report.hasGoodComments ? 
+                          <span className='g1'>Yes</span> :   
+                          <span className='g3'>No</span>
+                      },</p>
+                  <p><strong>"has Consistent Formatting":</strong> {
+                        report.hasConsistentFormatting ? 
+                          <span className='g1'>Yes</span> : 
+                          <span className='g3'>No</span>
+                      },</p>
+                  <p><strong>"has Private Keys":</strong> {
+                        report.hasPrivateKeys ? 
+                          <span className='g3'>Yes</span> : 
+                          <span className='g1'>No</span>
+                      },</p>
+                  <p><strong>"follows File Name Conventions":</strong> {
+                        report.followsFileNameConventions ? 
+                          <span className='g1'>Yes</span> : 
+                          <span className='g3'>No</span>
+                      },</p>
+                  <p><strong>"score":</strong><span className={report.score >= 60 ?'g1':'g3'}>{report.score}</span></p>
                 </div>
               )}
             </div>

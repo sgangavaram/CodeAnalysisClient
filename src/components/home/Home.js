@@ -67,7 +67,7 @@ function Home() {
         <thead className='reports-head'>
   
           <th>Time Stamp</th>
-          <th>Average Score (*req:80)</th>  
+          <th>Average Score (*req:60)</th>  
           <th>Critical Error</th>
           <th>Pipeline Status</th>
           <th>See More</th>
@@ -80,9 +80,9 @@ function Home() {
             className='reports-row'             
           >
             <td>{report.timestamp}</td>
-            <td>{<span className={((+report.avgScore)>=80)?'text-success':'text-danger'}>{report.avgScore}</span>}</td>
+            <td>{<span className={((+report.avgScore)>=60)?'text-success':'text-danger'}>{report.avgScore}</span>}</td>
             <td>{report.criticalErrors ? <span className='text-danger'>YES</span> : <span className='text-success'>NO</span>}</td>
-            <td>{((+report.avgScore) >=80 && report.criticalErrors===false)?<span className='text-success'>Passed</span>:<span className='text-danger'>Failed</span>}</td>
+            <td>{((+report.avgScore) >=60 && report.criticalErrors===false)?<span className='text-success'>Passed</span>:<span className='text-danger'>Failed</span>}</td>
             <td>
               <button 
                 className='btn py-1 border-none' 
