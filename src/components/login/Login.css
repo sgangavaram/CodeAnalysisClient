@@ -1,52 +1,100 @@
-.login-main{
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-    align-self: center;
-}
-.login-left, .login-right{
-    text-align: center;
-    height: 100%;
-    border: 1px solid black;
-}
-.login-left{
-    width: 70%;
-}
-.login-right{
-    width: 30%;
-    display: flex;
-    align-items: center;
-    background-color: black;
-    color: white;
-}
-.login-form{
-    width: 90%;
-    margin: auto;
-    border-radius: 10px;
-}
 
-.input-box{
+.login-main {
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d2c37; 
+    color: #fff; 
+    font-family: 'Roboto', sans-serif; 
+  }
+  
+   .login-left {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2d2c37;
+    padding: 20px;
+  }
+  
+  .login-left img {
+    max-width: 100%; 
+    height: auto; 
+  }
+
+  .login-left img:hover {
+    transform: scale(1.1); 
+  }
+  
+  .login-right {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #5163a1; 
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .login-form {
+    width: 100%;
+    max-width: 400px; 
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #e4992b;
+    text-align: center;
+  }
+
+  .input-box {
+    margin-bottom: 20px;
+  }
+  
+  .input-box input {
     width: 100%;
     height: 40px;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.input-box input{
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 5px;
-    margin: auto;
-    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #5163a1;
+    border-radius: 5px;
     box-sizing: border-box;
-    background-color: white;
-}
-
-.login-form h1{
-    font-family: 'Times New Roman', Times, serif;
-}
-
-
+    font-size: 16px;
+    background-color: #fff;
+    color: #454454; 
+  }
+  
+  .input-box .login-btn {
+    width: 100%;
+    height: 40px;
+    background-color: #5163a1; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+  }
+  
+  .input-box .login-btn:hover {
+    background-color: #454454; 
+  }
+  
+  .login-error {
+    color: #ff4444; 
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .create-account-link {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #454454; 
+    text-decoration: none;
+  }
+  
+  .create-account-link:hover {
+    text-decoration: underline;
+  }
+  

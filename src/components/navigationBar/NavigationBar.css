@@ -1,51 +1,64 @@
-.nav-main{
+  .nav-main {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    height: 100%;
-}
-
-.Nav-brand{
-    height: 100%;
-    margin-left: 10px;
-}
-.Nav-brand h2{
-    height: 100%;
-    align-content:center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.Nav-list{
-    height: 100%;
-    width: 50%;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
-    list-style: none;
-}
-
-.Nav-item{
-    padding: 10px;
-    align-content: center;
-    border-radius: 10px;
-}
-.Nav-item:hover {
-    cursor: pointer;
-    background-color: rgba(128, 128, 128, 0.311);
-}
-.Nav-link{
+    padding: 10px 20px;
+    background-color: #454454; 
+    color: #fff; 
+    font-family: 'Roboto', sans-serif; 
+    padding-right: 5%;
+  }
+  
+  .nav-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-brand h2 {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+  }
+  
+  .nav-logo {
+    width: 30px; 
+    height: 30px; 
+    margin-right: 10px; 
+    border-radius: 50%; 
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0; 
+    padding: 0; 
+  }
+  
+  .nav-item {
+    margin-left: 20px; 
+  }
+  
+  .nav-link, .nav-btn {
     text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-.Nav-btn{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    background-color: transparent;
+    color: #faaf3c; 
+    font-size: 18px; 
+    transition: color 0.3s ease; 
+  }
+  
+  .nav-link:hover, .nav-btn:hover {
+    color: #29abe0; 
+  }
+  
+  .nav-btn {
+    background: none; 
     border: none;
-    border-radius: 10px;
-    height: 100%;
-    width: 100%;
-}
+    cursor: pointer; 
+    font-size: 18px;
+    color: #faaf3c; 
+  }
+  
+  .nav-btn:focus {
+    outline: none;
+  }
+  

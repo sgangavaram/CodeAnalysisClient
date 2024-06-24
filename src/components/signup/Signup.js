@@ -36,13 +36,13 @@ function Signup() {
         <div className='signup-left '>
 
             <form className='signup-form  ' onSubmit={handleSubmit(onSubmit)}>
-              <h1>signup</h1> 
+              <h1>Signup</h1> 
 
               {/* User name */}
               <div className='input-box'>
                 <input 
                   type='text' 
-                  placeholder='User name'
+                  placeholder='Username'
                   {...register("username", { required: true })} 
                 />
               </div >
@@ -52,7 +52,7 @@ function Signup() {
               <div className='input-box'>
                 <input 
                   type='text' 
-                  placeholder='Github Id'
+                  placeholder='Github ID'
                   {...register("user_id",{required: true})}
                 />
                 {errors.user_id && <span className='signup-error'>Enter Github Id</span>}
@@ -62,7 +62,7 @@ function Signup() {
               <div className='input-box'>
                 <input 
                   type='email' 
-                  placeholder='email'
+                  placeholder='Email'
                   {...register("email",{required: true})}
                 />
                 {errors.eamil && <span className='signup-error'>Enter email</span>}
@@ -72,7 +72,7 @@ function Signup() {
               <div className='input-box'>
                 <input 
                   type='password' 
-                  placeholder='password'
+                  placeholder='Password'
                   {...register("password",{required: true})}
                 />
                 {errors.password && <span className='signup-error'>Enter the password</span>}
