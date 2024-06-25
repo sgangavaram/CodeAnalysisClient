@@ -78,14 +78,16 @@ function Signup() {
                 {errors.password && <span className='signup-error'>Enter the password</span>}
               </div>
 
-              <div  className='input-box mt-5'>
+              <div className='input-box mt-5'>
                 <input 
-                  className='bg-info fw-bold text-white' 
+                  style={{ backgroundColor: '#5163a1' }}
+                  className='fw-bold text-white' 
                   type={btnState === true ? 'submit' : 'button'}  
                   value={btnState === true ? 'Signup' : 'verifying...'}
-                  disabled= {!btnState}
+                  disabled={!btnState}
                 />
               </div>
+
 
               <div>
                 <a className='text-primary text-decoration-none' href='/login'>Login to existing account</a>

@@ -1,13 +1,36 @@
 import './Home.css';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 function Home() {
   const { register, handleSubmit } = useForm();
   const [reports, setReports] = useState([]);
+  const [totalReports, setTotalReports] = useState(0);
+  const [passedReports, setPassedReports] = useState(0);
+  const [failedReports, setFailedReports] = useState(0);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const user_id = localStorage.getItem('user_id');
+    axios.get(`https://localhost:7079/api/Dashboard/getAllReports?user_id=${user_id}`)
+      .then((res) => {
+        const allReports = res.data.value.payload || [];
+        setReports(allReports);
+        setTotalReports(allReports.length);
+        const passed = allReports.filter(report => (+report.avgScore >= 60 && !report.criticalErrors)).length;
+        setPassedReports(passed);
+        setFailedReports(allReports.length - passed);
+      })
+      .catch(err => {
+        console.log('Error occurred: ', err);
+      });
+  }, []);
 
   const onSubmit = (data) => {
     const user_id = localStorage.getItem('user_id');
@@ -16,13 +39,30 @@ function Home() {
 
     axios.get(url)
       .then((res) => {
-        if (res.data.value.success) setReports(res.data.value.payload);
-        else setReports([]);
+        const repoReports = res.data.value.payload || [];
+        setReports(repoReports);
+        setTotalReports(repoReports.length);
+        const passed = repoReports.filter(report => (+report.avgScore >= 60 && !report.criticalErrors)).length;
+        setPassedReports(passed);
+        setFailedReports(repoReports.length - passed);
       })
       .catch(err => {
         console.log('Error occurred: ', err);
       });
   }
+
+  const data = {
+    labels: ['Passed', 'Failed'],
+    datasets: [
+      {
+        label: '# of Reports',
+        data: [passedReports, failedReports],
+        backgroundColor: ['#28a745', '#dc3545'],
+        borderColor: ['#28a745', '#dc3545'],
+        borderWidth: 1,
+      },
+    ],
+  };
 
   return (
     <div className='home-main'>
@@ -40,6 +80,14 @@ function Home() {
             <input type='submit' value='Search' />
           </div>
         </form>
+      </div>
+
+      {/* Statistics */}
+      <div className='statistics'>
+        <h6>Total Reports Generated: {totalReports}</h6>
+        <div className='chart-container'>
+          <Pie data={data} />
+        </div>
       </div>
 
       {/* Report displayer */}
