@@ -18,7 +18,7 @@ function Home() {
 
   useEffect(() => {
     const user_id = localStorage.getItem('user_id');
-    axios.get(`https://localhost:7079/api/Dashboard/getAllReports?user_id=${user_id}`)
+    axios.get(`https://codeanalysis.azurewebsites.net/api/Dashboard/getAllReports?user_id=${user_id}`)
       .then((res) => {
         const allReports = res.data.value.payload || [];
         setReports(allReports);
@@ -35,7 +35,7 @@ function Home() {
   const onSubmit = (data) => {
     const user_id = localStorage.getItem('user_id');
     const repo_name = data.repo_name;
-    const url = `https://localhost:7079/api/Dashboard/getAllReports?user_id=${user_id}&repo_name=${repo_name}`;
+    const url = `https://codeanalysis.azurewebsites.net/api/Dashboard/getAllReports?user_id=${user_id}&repo_name=${repo_name}`;
 
     axios.get(url)
       .then((res) => {

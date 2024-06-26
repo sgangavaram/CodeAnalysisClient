@@ -11,7 +11,7 @@ function Signup() {
   const navigate = useNavigate();
   const onSubmit = (data) => {
     setBtnState(false)
-    axios.post('https://localhost:7079/api/Dashboard/InsertUser', data)
+    axios.post('https://codeanalysis.azurewebsites.net/api/Dashboard/InsertUser', data)
     .then(res=>{
       console.log(res.data)
       if(res.data.success) {

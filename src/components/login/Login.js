@@ -12,7 +12,7 @@ function Login() {
   const onSubmit = (data) => {
     setBtnState(false);
 
-    axios.post('https://localhost:7079/api/Dashboard/Login', data)
+    axios.post('https://codeanalysis.azurewebsites.net/api/Dashboard/Login', data)
     .then(res => {
       if(res.data.success) {
         localStorage.setItem('user_id', res.data.user_id);

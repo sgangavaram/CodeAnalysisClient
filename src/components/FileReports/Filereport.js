@@ -8,7 +8,7 @@
 //     useEffect(()=>{
 //         const state = location.state;
 //         const id = state.id;
-//         const url = `https://localhost:7079/api/Dashboard/getReportById?id=${id}`
+//         const url = `https://codeanalysis.azurewebsites.net/api/Dashboard/getReportById?id=${id}`
 //         axios
 //             .get(url)
 //             .then(res=>{
@@ -45,7 +45,7 @@ const Filereport = () => {
     const state = location.state;
     if (state && state.id) {
       const id = state.id;
-      const url = `https://localhost:7079/api/Dashboard/getReportById?id=${id}`;
+      const url = `https://codeanalysis.azurewebsites.net/api/Dashboard/getReportById?id=${id}`;
       axios
         .get(url)
         .then(res => {
